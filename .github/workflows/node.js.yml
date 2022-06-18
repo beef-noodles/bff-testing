@@ -25,6 +25,8 @@ jobs:
       uses: actions/setup-node@v3
     - name: Prepare pnpm
       run: npm install -g pnpm
+    - name: Prepare deps
+      run: pnpm install
     - name: Testing
       run: pnpm run test
     - name: Build
