@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "tsc src/index.ts",
+    "dev": "nodemon --watch src -e ts --exec ts-node src/index.ts",
+    "build": "tsc",
+    "go": "node ./dist/src/index.js"
   },
   "repository": {
     "type": "git",
@@ -23,6 +27,7 @@
     "@types/koa__router": "^8.0.11",
     "@types/supertest": "^2.0.12",
     "jest": "^28.1.1",
+    "nodemon": "^2.0.16",
     "supertest": "^6.2.3",
     "ts-jest": "^28.0.5",
     "typescript": "^4.7.4"
