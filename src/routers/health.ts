@@ -1,10 +1,9 @@
-import Router from '@koa/router'
+import Router from "@koa/router";
 
-const healthRouter = new Router()
+const healthRouter = new Router();
 
-healthRouter.get('/health', (cxt, _next) => {
-    cxt.body = true
-})
+healthRouter.get("/health", (cxt, _next) => {
+  cxt.body = true;
+});
 
-export default healthRouter
-
+export default healthRouter;

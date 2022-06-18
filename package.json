@@ -8,7 +8,10 @@
     "start": "tsc src/index.ts",
     "dev": "nodemon --watch src -e ts --exec ts-node src/index.ts",
     "build": "tsc",
-    "go": "node ./dist/src/index.js"
+    "go": "node ./dist/src/index.js",
+    "lint": "prettier --check .",
+    "lint:fix": "prettier --write .",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -26,8 +29,11 @@
     "@types/koa": "^2.13.4",
     "@types/koa__router": "^8.0.11",
     "@types/supertest": "^2.0.12",
+    "husky": "^8.0.1",
     "jest": "^28.1.1",
+    "lint-staged": "^13.0.2",
     "nodemon": "^2.0.16",
+    "prettier": "^2.7.1",
     "supertest": "^6.2.3",
     "ts-jest": "^28.0.5",
     "typescript": "^4.7.4"
@@ -38,5 +44,8 @@
     "koa": "^2.13.4",
     "ts-node": "^10.8.1",
     "tslib": "^2.4.0"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
   }
 }
