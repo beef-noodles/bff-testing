@@ -22,3 +22,10 @@ pnpm run build
 ```sh
 pnpm run go
 ```
+
+## Endpoint
+
+```http
+http://localhost:5432/v1/health
+http://localhost:5432/v1/uid
+```
