@@ -1,7 +1,7 @@
 import axios from "axios";
 
-import { requestTimeout, uuidV4URL } from "@/config";
-import InternalServerErrorException from "@/exceptions/InternalServerErrorException";
+import { requestTimeout, uuidV4URL } from "../config";
+import InternalServerErrorException from "../exceptions/InternalServerErrorException";
 
 type UUIDResponse = [string];
 export type UidResponse = {
