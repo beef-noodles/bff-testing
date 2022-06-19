@@ -13,13 +13,13 @@ uIDRouter.get("/uid", async (ctx) => {
     const result = (await response.data) as UUIDResponse;
 
     ctx.status = httpStatus.CREATED;
-    return (ctx.body = { id: result[0] });
+    ctx.body = { id: result[0] };
   } catch (error) {
     console.error(`Failed to request uuid, error: ${error}`);
     ctx.status = httpStatus.INTERNAL_SERVER_ERROR;
-    return (ctx.body = {
+    ctx.body = {
       errors: [httpStatus[httpStatus.INTERNAL_SERVER_ERROR]],
-    });
+    };
   }
 });
 
