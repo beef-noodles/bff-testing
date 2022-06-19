@@ -1,6 +1,7 @@
 import supertest from "supertest";
 import { rest } from "msw";
 import { setupServer, SetupServerApi } from "msw/node";
+import httpStatus, { HttpStatus } from "http-status";
 import { uuidV4URL } from "../src/config";
 
 import app from "../src/app";
@@ -29,7 +30,7 @@ describe("uID endpoint", () => {
 
     const response = await request.get(PATH_UID);
 
-    expect(response.statusCode).toEqual(201);
+    expect(response.statusCode).toEqual(httpStatus.CREATED);
     expect(response.body.id).toEqual(FIXTURE_UUID);
   });
 });

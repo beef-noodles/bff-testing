@@ -8,6 +8,7 @@ specifiers:
   "@types/node": ^18.0.0
   "@types/supertest": ^2.0.12
   axios: ^0.27.2
+  http-status: ^1.5.2
   husky: ^8.0.1
   jest: ^28.1.1
   koa: ^2.13.4
@@ -34,6 +35,7 @@ devDependencies:
   "@types/koa": 2.13.4
   "@types/koa__router": 8.0.11
   "@types/supertest": 2.0.12
+  http-status: 1.5.2
   husky: 8.0.1
   jest: 28.1.1_48599dd56573cc70f5830486390ee5cc
   lint-staged: 13.0.2
@@ -2819,6 +2821,14 @@ packages:
       statuses: 1.5.0
       toidentifier: 1.0.1
     dev: false
+
+  /http-status/1.5.2:
+    resolution:
+      {
+        integrity: sha512-HzxX+/hV/8US1Gq4V6R6PgUmJ5Pt/DGATs4QhdEOpG8LrdS9/3UG2nnOvkqUpRks04yjVtV5p/NODjO+wvf6vg==,
+      }
+    engines: { node: ">= 0.4.0" }
+    dev: true
 
   /human-signals/2.1.0:
     resolution:
