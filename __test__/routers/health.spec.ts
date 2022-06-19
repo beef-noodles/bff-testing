@@ -1,6 +1,6 @@
 import supertest from "supertest";
 
-import app from "../src/app";
+import app from "@/app";
 
 describe("Health endpoint", () => {
   const request = supertest(app.callback());

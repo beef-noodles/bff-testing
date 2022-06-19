@@ -1,16 +1,14 @@
-import supertest from "supertest";
 import { rest } from "msw";
 import { setupServer, SetupServerApi } from "msw/node";
 import httpStatus from "http-status";
-import { uuidV4URL } from "../src/config";
+import { uuidV4URL } from "../../src/config";
 
-import app from "../src/app";
-import { FIXTURE_UUID, PATH_UID } from "./fixture";
+import { getUid, UidResponse } from "../../src/services/UidService";
+import { FIXTURE_UUID } from "../fixture";
+import InternalServerErrorException from "../../src/exceptions/InternalServerErrorException";
 
 describe("uID endpoint", () => {
   let mockServer: SetupServerApi;
-
-  const request = supertest(app.callback());
 
   afterEach(() => {
     mockServer.resetHandlers();
@@ -28,13 +26,12 @@ describe("uID endpoint", () => {
     );
     mockServer.listen();
 
-    const response = await request.get(PATH_UID);
+    const uidResponse: UidResponse = await getUid();
 
-    expect(response.statusCode).toEqual(httpStatus.CREATED);
-    expect(response.body.id).toEqual(FIXTURE_UUID);
+    expect(uidResponse.id).toEqual(FIXTURE_UUID);
   });
 
-  it("should return 500 given low level is down", async () => {
+  it("should return throw exception given low level is down", async () => {
     mockServer = setupServer(
       rest.get(uuidV4URL, (_req, res, ctx) => {
         return res(ctx.status(httpStatus.INTERNAL_SERVER_ERROR));
@@ -42,12 +39,11 @@ describe("uID endpoint", () => {
     );
     mockServer.listen();
 
-    const response = await request.get(PATH_UID);
-
-    expect(response.statusCode).toEqual(httpStatus.INTERNAL_SERVER_ERROR);
-    expect(response.body.errors).toHaveLength(1);
-    expect(response.body.errors[0]).toEqual(
-      httpStatus[httpStatus.INTERNAL_SERVER_ERROR]
-    );
+    expect.assertions(1);
+    try {
+      await getUid();
+    } catch (error) {
+      expect(error).toEqual(new InternalServerErrorException("error"));
+    }
   });
 });
