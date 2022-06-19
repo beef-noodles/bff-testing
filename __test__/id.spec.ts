@@ -1,12 +1,11 @@
 import supertest from "supertest";
 import { rest } from "msw";
 import { setupServer, SetupServerApi } from "msw/node";
-import httpStatus, { HttpStatus } from "http-status";
+import httpStatus from "http-status";
 import { uuidV4URL } from "../src/config";
 
 import app from "../src/app";
 import { FIXTURE_UUID, PATH_UID } from "./fixture";
-import exp from "constants";
 
 describe("uID endpoint", () => {
   let mockServer: SetupServerApi;
@@ -23,7 +22,7 @@ describe("uID endpoint", () => {
 
   it("should return true for health endpoint", async () => {
     mockServer = setupServer(
-      rest.get(uuidV4URL, (req, res, ctx) => {
+      rest.get(uuidV4URL, (_req, res, ctx) => {
         return res(ctx.json([FIXTURE_UUID]));
       })
     );
@@ -37,7 +36,7 @@ describe("uID endpoint", () => {
 
   it("should return 500 given low level is down", async () => {
     mockServer = setupServer(
-      rest.get(uuidV4URL, (req, res, ctx) => {
+      rest.get(uuidV4URL, (_req, res, ctx) => {
         return res(ctx.status(httpStatus.INTERNAL_SERVER_ERROR));
       })
     );
