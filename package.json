@@ -9,8 +9,9 @@
     "dev": "nodemon --watch src -e ts --exec ts-node src/index.ts",
     "build": "tsc",
     "go": "node ./dist/src/index.js",
-    "lint": "prettier --check .",
-    "lint:fix": "prettier --write .",
+    "prelint": "eslint  --max-warnings 0 --ext .ts ./src ./__test__",
+    "lint": "eslint  --max-warnings 0 --ext .ts ./src ./__test__ && prettier --check .",
+    "lint:fix": "eslint --fix --ext .ts ./src ./__test__ && prettier --write .",
     "prepare": "husky install"
   },
   "repository": {
@@ -29,6 +30,10 @@
     "@types/koa": "^2.13.4",
     "@types/koa__router": "^8.0.11",
     "@types/supertest": "^2.0.12",
+    "@typescript-eslint/eslint-plugin": "^5.28.0",
+    "@typescript-eslint/parser": "^5.28.0",
+    "eslint": "^8.18.0",
+    "eslint-config-prettier": "^8.5.0",
     "http-status": "^1.5.2",
     "husky": "^8.0.1",
     "jest": "^28.1.1",
@@ -49,6 +54,7 @@
     "tslib": "^2.4.0"
   },
   "lint-staged": {
+    "**/*.ts": "eslint  --max-warnings 0 --ext .ts",
     "**/*": "prettier --write --ignore-unknown"
   }
 }

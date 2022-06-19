@@ -5,9 +5,9 @@ import httpStatus from "http-status";
 import { uuidV4URL } from "../config";
 const uIDRouter = new Router();
 
-type UUIDResponse = [String];
+type UUIDResponse = [string];
 
-uIDRouter.get("/uid", async (ctx, _next) => {
+uIDRouter.get("/uid", async (ctx) => {
   try {
     const response = await axios.get(uuidV4URL);
     const result = (await response.data) as UUIDResponse;
