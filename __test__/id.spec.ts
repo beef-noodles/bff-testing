@@ -4,10 +4,9 @@ import { setupServer, SetupServerApi } from "msw/node";
 import { uuidV4URL } from "../src/config";
 
 import app from "../src/app";
+import { FIXTURE_UUID, PATH_UID } from "./fixture";
 
 describe("uID endpoint", () => {
-  const uuid = "533e50d3-5778-476e-b6f4-4b7e7cc37285";
-
   let mockServer: SetupServerApi;
 
   const request = supertest(app.callback());
@@ -23,14 +22,14 @@ describe("uID endpoint", () => {
   it("should return true for health endpoint", async () => {
     mockServer = setupServer(
       rest.get(uuidV4URL, (req, res, ctx) => {
-        return res(ctx.json([uuid]));
+        return res(ctx.json([FIXTURE_UUID]));
       })
     );
     mockServer.listen();
 
-    const response = await request.get("/v1/uid");
+    const response = await request.get(PATH_UID);
 
     expect(response.statusCode).toEqual(201);
-    expect(response.body.id).toEqual(uuid);
+    expect(response.body.id).toEqual(FIXTURE_UUID);
   });
 });
