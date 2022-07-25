@@ -15,7 +15,7 @@ export const loggerFactory = () => {
         type: "stdout",
         layout: {
           type: "pattern",
-          pattern: "%d %p %h %z %m%n",
+          pattern: "%d %p %h %z %m",
         },
       },
     },

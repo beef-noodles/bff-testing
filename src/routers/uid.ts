@@ -7,7 +7,6 @@ import logger from "../utils/loggerUtils";
 const uIDRouter = new Router();
 
 uIDRouter.get("/uid", async (ctx) => {
-  logger.debug("debug ggggg");
   logger.info("Start to generate uid");
   try {
     const uidResponse: UidResponse = await getUid();
