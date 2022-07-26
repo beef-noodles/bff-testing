@@ -1,0 +1,7 @@
+### health
+
+GET http://localhost:5432/v1/health
+
+
+### UUID
+GET http://localhost:5432/v1/uid
