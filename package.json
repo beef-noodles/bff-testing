@@ -1,0 +1,64 @@
+{
+  "name": "bff-testing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "tsc src/index.ts",
+    "dev": "nodemon --watch src -e ts --exec ts-node src/index.ts",
+    "build": "tsc",
+    "go": "NODE_ENV=prod node ./dist/src/index.js",
+    "prelint": "eslint  --max-warnings 0 --ext .ts ./src ./__test__",
+    "lint": "eslint  --max-warnings 0 --ext .ts ./src ./__test__ && prettier --check .",
+    "lint:fix": "eslint --fix --ext .ts ./src ./__test__ && prettier --write .",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndorLab/bff-testing.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AndorLab/bff-testing/issues"
+  },
+  "homepage": "https://github.com/AndorLab/bff-testing#readme",
+  "devDependencies": {
+    "@types/jest": "^28.1.2",
+    "@types/koa": "^2.13.4",
+    "@types/koa__router": "^8.0.11",
+    "@types/supertest": "^2.0.12",
+    "@typescript-eslint/eslint-plugin": "^5.28.0",
+    "@typescript-eslint/parser": "^5.28.0",
+    "dotenv": "^16.0.1",
+    "eslint": "^8.18.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-jest": "^26.5.3",
+    "eslint-plugin-prettier": "^4.0.0",
+    "http-status": "^1.5.2",
+    "husky": "^8.0.1",
+    "jest": "^28.1.1",
+    "lint-staged": "^13.0.2",
+    "msw": "^0.42.1",
+    "nodemon": "^2.0.16",
+    "prettier": "^2.7.1",
+    "supertest": "^6.2.3",
+    "ts-jest": "^28.0.5",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "@koa/router": "^10.1.1",
+    "@types/node": "^18.0.0",
+    "axios": "^0.27.2",
+    "koa": "^2.13.4",
+    "log4js": "^6.6.0",
+    "ts-node": "^10.8.1",
+    "tslib": "^2.4.0"
+  },
+  "lint-staged": {
+    "**/*.ts": "eslint  --max-warnings 0 --ext .ts",
+    "**/*": "prettier --write --ignore-unknown"
+  }
+}
