@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/AndorLab/bff-testing#readme",
   "devDependencies": {
-    "@types/jest": "^28.1.2",
+    "@types/jest": "^29.2.4",
     "@types/koa": "^2.13.4",
     "@types/koa__router": "^8.0.11",
     "@types/supertest": "^2.0.12",
