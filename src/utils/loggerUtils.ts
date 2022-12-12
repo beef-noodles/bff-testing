@@ -11,23 +11,23 @@ export const loggerFactory = () => {
 
   log4js.configure({
     appenders: {
-      stdout: {
+      pattern: {
         type: "stdout",
         layout: {
           type: "pattern",
-          pattern: "%d %p %h %z %m",
+          pattern: "%[%d [%p] [%h] [%z] %M(%C:%l)-%m%]",
         },
       },
     },
     categories: {
       default: {
-        appenders: ["stdout"],
         enableCallStack: true,
+        appenders: ["pattern"],
         level: logLevel,
       },
     },
   });
-  const logger = log4js.getLogger();
+  const logger = log4js.getLogger("pattern");
 
   return logger;
 };
