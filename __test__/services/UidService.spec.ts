@@ -11,10 +11,7 @@ describe("UidService", () => {
   let mockServer: SetupServerApi;
 
   afterEach(() => {
-    mockServer.resetHandlers();
-  });
-
-  afterAll(() => {
+    mockServer.restoreHandlers();
     mockServer.close();
   });
 
@@ -39,6 +36,6 @@ describe("UidService", () => {
     );
     mockServer.listen();
 
-    await expect(getUid()).rejects.toThrowError(InternalServerErrorException);
+    await expect(getUid()).rejects.toThrow(InternalServerErrorException);
   });
 });
