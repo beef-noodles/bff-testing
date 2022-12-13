@@ -3,11 +3,11 @@ import { setupServer, SetupServerApi } from "msw/node";
 import httpStatus from "http-status";
 import { uuidV4URL } from "@/config";
 
-import { getUid, UidResponse } from "@/services/UidService";
 import { FIXTURE_UUID } from "../fixture";
 import InternalServerErrorException from "@/exceptions/InternalServerErrorException";
+import { uidService, UidResponse } from "@/services/UidService";
 
-describe("UidService", () => {
+describe("UidService.spec.ts", () => {
   let mockServer: SetupServerApi;
 
   afterEach(() => {
@@ -23,7 +23,7 @@ describe("UidService", () => {
     );
     mockServer.listen();
 
-    const uidResponse: UidResponse = await getUid();
+    const uidResponse: UidResponse = await uidService.getUid();
 
     expect(uidResponse.id).toEqual(FIXTURE_UUID);
   });
@@ -36,6 +36,8 @@ describe("UidService", () => {
     );
     mockServer.listen();
 
-    await expect(getUid()).rejects.toThrow(InternalServerErrorException);
+    await expect(uidService.getUid()).rejects.toThrow(
+      InternalServerErrorException
+    );
   });
 });

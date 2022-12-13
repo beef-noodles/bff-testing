@@ -2,28 +2,34 @@ import supertest from "supertest";
 import httpStatus from "http-status";
 
 import app from "@/app";
-import * as UidService from "@/services/UidService";
+import { uidService } from "@/services/UidService";
 import { FIXTURE_UUID, PATH_UID } from "../fixture";
 import InternalServerErrorException from "@/exceptions/InternalServerErrorException";
 
-describe("uID endpoint", () => {
+jest.mock("@/services/UidService");
+
+describe("uid endpoint", () => {
   const request = supertest(app.callback());
 
+  const getUidSpy = jest.spyOn(uidService, "getUid");
+
+  beforeEach(() => {
+    getUidSpy.mockRestore();
+  });
+
   it("should return UUID given uidService return result", async () => {
-    jest.spyOn(UidService, "getUid").mockResolvedValue({
+    getUidSpy.mockResolvedValue({
       id: FIXTURE_UUID,
     });
 
     const response = await request.get(PATH_UID);
 
-    expect(response.statusCode).toEqual(httpStatus.CREATED);
+    expect(httpStatus.CREATED).toEqual(response.statusCode);
     expect(response.body.id).toEqual(FIXTURE_UUID);
   });
 
   it("should return 500 given low level is down", async () => {
-    jest
-      .spyOn(UidService, "getUid")
-      .mockRejectedValue(new InternalServerErrorException("failed"));
+    getUidSpy.mockRejectedValue(new InternalServerErrorException("failed"));
 
     const response = await request.get(PATH_UID);
 
