@@ -51,7 +51,7 @@
   "dependencies": {
     "@koa/router": "12.0.0",
     "@types/node": "^18.0.0",
-    "axios": "1.2.5",
+    "axios": "1.2.6",
     "koa": "^2.13.4",
     "log4js": "^6.6.0",
     "ts-node": "^10.8.1",
