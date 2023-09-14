@@ -35,8 +35,8 @@ devDependencies:
     specifier: ^2.13.4
     version: 2.13.5
   '@types/koa__router':
-    specifier: 12.0.0
-    version: 12.0.0
+    specifier: 12.0.1
+    version: 12.0.1
   '@types/supertest':
     specifier: ^2.0.12
     version: 2.0.12
@@ -1029,8 +1029,8 @@ packages:
       '@types/node': 18.11.14
     dev: true
 
-  /@types/koa__router@12.0.0:
-    resolution: {integrity: sha512-S6eHyZyoWCZLNHyy8j0sMW85cPrpByCbGGU2/BO4IzGiI87aHJ92lZh4E9xfsM9DcbCT469/OIqyC0sSJXSIBQ==}
+  /@types/koa__router@12.0.1:
+    resolution: {integrity: sha512-uqV+v6pCsfLZwK+Ar6XavKSZ6Cbsgw12bCEX9L0IKHj81LTWXcrayxJWkLtez5vOMQlq+ax+lZcuCyh9CgxYGw==}
     dependencies:
       '@types/koa': 2.13.5
     dev: true
