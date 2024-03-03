@@ -63,7 +63,7 @@ devDependencies:
     version: 5.1.3(eslint-config-prettier@9.1.0)(eslint@8.57.0)(prettier@3.0.0)
   http-status:
     specifier: ^1.5.2
-    version: 1.5.3
+    version: 1.7.4
   husky:
     specifier: ^9.0.0
     version: 9.0.11
@@ -2665,8 +2665,8 @@ packages:
       toidentifier: 1.0.1
     dev: false
 
-  /http-status@1.5.3:
-    resolution: {integrity: sha512-jCClqdnnwigYslmtfb28vPplOgoiZ0siP2Z8C5Ua+3UKbx410v+c+jT+jh1bbI4TvcEySuX0vd/CfFZFbDkJeQ==}
+  /http-status@1.7.4:
+    resolution: {integrity: sha512-c2qSwNtTlHVYAhMj9JpGdyo0No/+DiKXCJ9pHtZ2Yf3QmPnBIytKSRT7BuyIiQ7icXLynavGmxUqkOjSrAuMuA==}
     engines: {node: '>= 0.4.0'}
     dev: true
 
