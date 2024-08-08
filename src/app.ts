@@ -7,7 +7,7 @@ import uIDRouter from "./routers/uid";
 const app = new Koa();
 
 const rootRouter = new Router({
-  prefix: "/v1",
+  prefix: "/api/v1",
 });
 
 rootRouter.use(healthRouter.routes(), healthRouter.allowedMethods());

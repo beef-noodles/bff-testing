@@ -1,4 +1,4 @@
-import logger from "@/utils/loggerUtils";
+import logger from "../utils/loggerUtils";
 import axios from "axios";
 
 import { requestTimeout, uuidV4URL } from "../config";

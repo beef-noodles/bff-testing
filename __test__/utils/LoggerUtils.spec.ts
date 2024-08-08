@@ -1,4 +1,4 @@
-import { loggerFactory } from "@/utils/loggerUtils";
+import { loggerFactory } from "../../src/utils/loggerUtils";
 import dotenv, { DotenvConfigOutput } from "dotenv";
 
 describe("logger", () => {

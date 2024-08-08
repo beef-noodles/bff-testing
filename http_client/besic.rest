@@ -1,7 +1,7 @@
 ### health
 
-GET http://localhost:5432/v1/health
+GET http://localhost:5432/api/v1/health
 
 
 ### UUID
-GET http://localhost:5432/v1/uid
+GET http://localhost:5432/api/v1/uid
